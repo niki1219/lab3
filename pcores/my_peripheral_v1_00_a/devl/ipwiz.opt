@@ -1,0 +1,9 @@
+-batch 
+-create my_peripheral 
+-ver 1.00.a 
+-dir "C:\Users\student\Desktop\lab3" 
+-lang vhdl 
+-bus axi4lite s 
+-reg 1 
+-xps 
+-driver 
