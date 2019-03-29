@@ -14,11 +14,11 @@
  PORT RS232_Uart_1_sout = RS232_Uart_1_sout, DIR = O
  PORT RS232_Uart_1_sin = RS232_Uart_1_sin, DIR = I
  PORT RESET = RESET, DIR = I, SIGIS = RST, RST_POLARITY = 0
- PORT LEDS_TRI_O = vga_periph_0_LED_Data, DIR = O, VEC = [0:7]
  PORT DIP_Switches_TRI_I = DIP_Switches_TRI_I, DIR = I, VEC = [0:7]
  PORT CLK_P = CLK, DIR = I, DIFFERENTIAL_POLARITY = P, SIGIS = CLK, CLK_FREQ = 50000000
  PORT CLK_N = CLK, DIR = I, DIFFERENTIAL_POLARITY = N, SIGIS = CLK, CLK_FREQ = 50000000
  PORT my_peripheral_0_DIP_Data_pin = net_my_peripheral_0_DIP_Data_pin, DIR = I, VEC = [7:0]
+ PORT vga_peripheral_007_0_S_AXI_ACLK_pin = net_vga_peripheral_007_0_S_AXI_ACLK_pin, DIR = I, SIGIS = CLK
 
 
 BEGIN proc_sys_reset
@@ -170,14 +170,12 @@ BEGIN my_peripheral
  PORT LED_Data = my_peripheral_0_LED_Data
 END
 
-BEGIN vga_periph
- PARAMETER INSTANCE = vga_periph_0
+BEGIN vga_peripheral_007
+ PARAMETER INSTANCE = vga_peripheral_007_0
  PARAMETER HW_VER = 1.00.a
- PARAMETER C_BASEADDR = 0x74400000
- PARAMETER C_HIGHADDR = 0x7440ffff
+ PARAMETER C_BASEADDR = 0x7b200000
+ PARAMETER C_HIGHADDR = 0x7b20ffff
  BUS_INTERFACE S_AXI = axi4lite_0
- PORT S_AXI_ACLK = clk_100_0000MHz
- PORT DIP_Data = DIP_Switches_TRI_I
- PORT LED_Data = vga_periph_0_LED_Data
+ PORT S_AXI_ACLK = net_vga_peripheral_007_0_S_AXI_ACLK_pin
 END
 

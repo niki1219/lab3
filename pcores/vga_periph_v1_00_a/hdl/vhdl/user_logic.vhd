@@ -103,8 +103,8 @@ entity user_logic is
 	 clk_i          : in  std_logic;
     reset_n_i      : in  std_logic;
     -- vga
-		direct_mode_i     : in std_logic;
-		display_mode_i : in std_logic_vector( 1 downto 0);
+	direct_mode_i     : in std_logic;
+	display_mode_i : in std_logic_vector( 1 downto 0);
     vga_hsync_o    : out std_logic;
     vga_vsync_o    : out std_logic;
     blank_o        : out std_logic;
